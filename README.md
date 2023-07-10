@@ -1,3 +1,3 @@
 ### KNOWHERE
 
-> Knowhere is a social site. More on this later
+> Knowhere is a social site. More on this later.
