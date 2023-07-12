@@ -4,10 +4,10 @@
 
 {% block content %}
     <h1>Login</h1>
-    <p>Please enter the required details below.</p>
+    <p>Please enter the required details below. If you don't have an account, <a href="{% url 'register' %}">register here</a>.</p>
     <form method="POST">
         {{ form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Login"></p>
     </form>
-{% endblock content %}
+{% endblock content %} 
