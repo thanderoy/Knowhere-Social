@@ -27,7 +27,7 @@ class UserRegistrationForm(forms.Form):
         return data.get("password2")
 
 
-class UserEditForm(forms.Form):
+class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["first_name", "last_name", "email"]
