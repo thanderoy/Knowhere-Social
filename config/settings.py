@@ -27,7 +27,11 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "knowhere-social.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -35,7 +39,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Local Apps
     "apps.account.apps.AccountConfig",
-    
+
+    # Essential
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,6 +48,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Extras
+    "social_django",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -111,7 +119,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    "account.authentication.EmailAuthBackend",
+    "apps.account.authentication.EmailAuthBackend",
+    "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.twitter.TwitterOAuth",
+    "social_core.backends.google.GoogleOAuth2",
 ]
 
 # Internationalization
@@ -145,3 +156,11 @@ LOGIN_REDIRECT_URL = config("LOGIN_REDIRECT_URL")
 LOGIN_URL = config("LOGIN_URL")
 LOGOUT_URL = config("LOGOUT_URL")
 
+# Social Auth
+
+SOCIAL_AUTH_FACEBOOK_KEY = config("SOCIAL_AUTH_FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = config("SOCIAL_AUTH_FACEBOOK_SECRET")
+SOCIAL_AUTH_TWITTER_KEY = config("SOCIAL_AUTH_TWITTER_KEY")
+SOCIAL_AUTH_TWITTER_SECRET = config("SOCIAL_AUTH_TWITTER_SECRET")
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
