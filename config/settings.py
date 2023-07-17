@@ -39,6 +39,8 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     # Local Apps
     "apps.account.apps.AccountConfig",
+    "apps.images.apps.ImagesConfig",
+
 
     # Essential
     "django.contrib.admin",
