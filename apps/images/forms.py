@@ -9,6 +9,7 @@ class ImageCreateForm(forms.ModelChoiceField):
         fields = ["title", "url", "description"]
         widgets = {
             "url": forms.HiddenInput,
+
         }
 
         def clean_url(self):
